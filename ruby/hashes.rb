@@ -51,20 +51,30 @@ puts client_details
 
 puts "------------------------------------------------------------------"
 
-p client_detail_labels = client_details.keys
+client_detail_labels = client_details.keys
 puts "Is there anything you would like to change from the labels listed? If none, type 'none'."
-change_details = gets.chomp
+puts "#{client_detail_labels.join(", ")}"
+change_details = gets.chomp.to_sym
 
-if change_details == "none"
-	puts "Great! All of the client's details are saved."
-elsif change_details != "none"
-	detail_to_sym = change_details.to_sym
+if client_detail_labels.include?(change_details)
 	puts "What is the new value for #{change_details}?"
 	update_detail_values = gets.chomp
-	client_details[detail_to_sym] = update_detail_values
+	if change_details == :age || change_details == :num_of_children
+		client_details[change_details] = update_detail_values.to_i
+	elsif change_details == :has_pets || change_details == :wants_plants
+		update_detail_values = (update_detail_values == "y" || update_detail_values == "yes")
+		client_details[change_details] = update_detail_values
+	else
+		client_details[change_details] = update_detail_values
+	end
+else
+	puts "Great! All of the client's details are saved."
 end
 
+
+
 puts client_details
+
 
 
 
