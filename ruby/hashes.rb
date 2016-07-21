@@ -39,7 +39,7 @@ plants = gets.chomp.downcase
 wants_plants = (plants == "y" || plants == "yes")
 
 client_details = {
-	"name" => name,
+	name: name,
 	age: age,
 	num_of_children: num_of_children,
 	decor_theme: decor_theme,
