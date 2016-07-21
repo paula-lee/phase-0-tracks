@@ -4,36 +4,48 @@
 # When there's more than one suspect who could have
 # committed the crime, add additional calls to prove it.
 
-# "iNvEsTiGaTiOn".<???>
+p "iNvEsTiGaTiOn".swapcase
 # => “InVeStIgAtIoN”
 
-# "zom".<???>
+p "zom".insert(1, "o")
 # => “zoom”
 
-# "enhance".<???>
+p "enhance".center(20)
 # => "    enhance    "
 
-# "Stop! You’re under arrest!".<???>
+p "Stop! You’re under arrest!".upcase
 # => "STOP! YOU’RE UNDER ARREST!"
 
-# "the usual".<???>
+p "the usual".concat(" suspects")
+#other ways to add a word
+p "the usual" << " suspects"
+p "the usual" + " suspects"
 #=> "the usual suspects"
 
-# " suspects".<???>
+p " suspects".prepend("the usual")
 # => "the usual suspects"
 
-# "The case of the disappearing last letter".<???>
+p "The case of the disappearing last letter".chop
 # => "The case of the disappearing last lette"
 
-# "The mystery of the missing first letter".<???>
+p "The mystery of the missing first letter".sub(/^./,"")
+#other way to remove the first letter or character
+p "The mystery of the missing first letter".reverse.chop.reverse
+p "The mystery of the missing first letter".gsub(/^./,"")
+# slice(0) would work but the string would have to equal a variable for
+# it to have the correct output
+
 # => "he mystery of the missing first letter"
 
-# "Elementary,    my   dear        Watson!".<???>
+p "Elementary,    my   dear        Watson!".squeeze(" ")
 # => "Elementary, my dear Watson!"
 
-# "z".<???>
+p "z".ord
 # => 122 
 # (What is the significance of the number 122 in relation to the character z?)
+# ASCII values have ordinal values assigned to them called the ordinal position.
+# So each character in the ASCII has an integer value assigned to it and 122 
+# happens to be assigned to z. 
 
-# "How many times does the letter 'a' appear in this string?".<???>
+puts "How many times does the letter 'a' appear in this string?".count("a")
 # => 4
