@@ -11,6 +11,7 @@
 #convert input to string, boolean, or integer
 #print out the hash
 #ask the user if there is anything they would like to change (no loop)
+#show user the list of key names they can choose from
 	#if none, skip
 	#else if user types the key name, prompt for a new value
 	#update the user input from string to symbol then update the key to the new value
@@ -46,6 +47,27 @@ client_details = {
 	wants_plants: wants_plants
 }
 
-p client_details
+puts client_details
+
+puts "------------------------------------------------------------------"
+
+p client_detail_labels = client_details.keys
+puts "Is there anything you would like to change from the labels listed? If none, type 'none'."
+change_details = gets.chomp
+
+if change_details == "none"
+	puts "Great! All of the client's details are saved."
+elsif change_details != "none"
+	detail_to_sym = change_details.to_sym
+	puts "What is the new value for #{change_details}?"
+	update_detail_values = gets.chomp
+	client_details[detail_to_sym] = update_detail_values
+end
+
+puts client_details
+
+
+
+
 
 
