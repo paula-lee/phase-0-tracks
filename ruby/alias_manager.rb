@@ -13,13 +13,13 @@
 # create a method called vowel
 	# define the vowels 
 	# if there is a space " ", leave it alone
-	# if full_name includes vowels, then return the next vowel letter
 	# if the vowel is "u", make it an "a"
+	# if full_name includes vowels, then return the next vowel letter
 # create a method called consonant
 	# define the consonants
 	# if there is a space " ", leave it alone
-	# if the full_name includes consonants, then return the next consonant letter
 	# if the vowel is "z", make it an "b"
+	# if the full_name includes consonants, then return the next consonant letter
 
 #commit message changes => edit pseudocode
 
@@ -37,9 +37,10 @@ def vowels(characters)
 		characters.map! do |char|
 			if char == " "
 				" "
-			end
-			if char == "u"
+			elsif char == "u"
 				new_char = "a"
+			elsif vowels.include?(char)
+				new_char = vowels[vowels.index(char)+1]
 			end
 		end
 		p characters.join(" ")
