@@ -25,9 +25,8 @@
 	# join and capitalize the new encrypted name
 	# then return the new encrypted name
 
-#commit message changes => edit pseudocode
 
-
+# RELEASE 0
 def encrypt_name(full_name)
 	name_array = full_name.split(" ")
 	swapped_name = name_array.reverse.join(" ")
@@ -68,9 +67,23 @@ def consonants(characters)
 		end
 	encrypted_name = characters.join("")
 	encrypted_name = encrypted_name.split(" ").map! {|name| name.capitalize}.join(" ")
-	p encrypted_name
+	encrypted_name
+end
+
+
+# RELEASE 1: USER INTERFACE
+loop do
+	puts "Please input a name you would like to encrypt. If you are done, type 'quit'"
+	name = gets.chomp.downcase
+	
+	break if name == "quit"
+	puts encrypt_name(name)
 end
 
 
 
-encrypt_name("felicia torres")
+
+
+
+# DRIVER CODE
+# encrypt_name("felicia torres")
