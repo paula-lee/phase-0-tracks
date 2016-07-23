@@ -1,7 +1,8 @@
 # pseudocode
 # create a method called encrypt_name that can take first and last name
 # take the first and last name and make into an array called name_array
-	# separate the first and last name by splitting it with a space so that first name is a value
+	# separate the first and last name by splitting it with a space so that 
+	# first name is a value
 	# and last name is a value
 # call .reverse on the split_name array so that it will swap the first name and the last name 
 	# originally thought of doing array[0], array[1] = array[1], array[0] to swap but found 
@@ -87,7 +88,9 @@ loop do
 	spy_original_name[name] = encrypt_name(name)
 end
 
-
+spy_original_name.each do |real_name, spy_name|
+	puts "#{spy_name} is acutally #{real_name}!!"
+end
 
 
  
