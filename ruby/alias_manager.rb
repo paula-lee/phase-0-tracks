@@ -72,8 +72,10 @@ end
 
 
 # RELEASE 1: USER INTERFACE / RELEASE 2: DATA STRUCTURE
-store_name = []
-spy_name = []
+# original_name = []
+# spy_name = []
+
+spy_original_name = {}
 
 loop do
 	puts "Please input a name you would like to encrypt. If you are done, type 'quit'"
@@ -81,15 +83,14 @@ loop do
 
 	break if name == "quit"
 	puts encrypt_name(name)
-	store_name << name
-	spy_name << encrypt_name(name)
+
+	spy_original_name[name] = encrypt_name(name)
 end
 
-p store_name
-p spy_name
 
 
 
+ 
 
 
 
