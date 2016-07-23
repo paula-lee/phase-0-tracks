@@ -41,9 +41,30 @@ def vowels(characters)
 				new_char = "a"
 			elsif vowels.include?(char)
 				new_char = vowels[vowels.index(char)+1]
+			else
+				char
 			end
 		end
-		p characters.join(" ")
+	consonants(characters)
 end
 
-encrypt_name("paula lee")
+def consonants(characters)
+	consonants = "bcdfghjklmnpqrstvwxyz"
+	new_char = ""
+		characters.map! do |char|
+			if char == " "
+				" "
+			elsif char == "z"
+				new_char = "b"
+			elsif consonants.include?(char)
+				new_char = consonants[consonants.index(char)+1]
+			else
+				char
+			end
+		end
+	p characters.join(" ")
+end
+
+
+
+encrypt_name("zagat")
