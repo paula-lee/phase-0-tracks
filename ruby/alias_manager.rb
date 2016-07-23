@@ -28,7 +28,7 @@
 
 # RELEASE 0
 def encrypt_name(full_name)
-	name_array = full_name.split(" ")
+	name_array = full_name.downcase.split(" ")
 	swapped_name = name_array.reverse.join(" ")
 	name_characters = swapped_name.split("")
 	vowels(name_characters)
@@ -71,14 +71,22 @@ def consonants(characters)
 end
 
 
-# RELEASE 1: USER INTERFACE
+# RELEASE 1: USER INTERFACE / RELEASE 2: DATA STRUCTURE
+store_name = []
+spy_name = []
+
 loop do
 	puts "Please input a name you would like to encrypt. If you are done, type 'quit'"
-	name = gets.chomp.downcase
-	
+	name = gets.chomp
+
 	break if name == "quit"
 	puts encrypt_name(name)
+	store_name << name
+	spy_name << encrypt_name(name)
 end
+
+p store_name
+p spy_name
 
 
 
