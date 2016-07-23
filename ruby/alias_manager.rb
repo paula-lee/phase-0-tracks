@@ -10,16 +10,20 @@
 	# separate values
 # create a new variable called swapped_name and assign it to the new swapped name array
 # create a new variable called name_characters and split the swapped_name array into each characters
-# create a method called vowel
+# call the method vowels and pass name_characters into vowels method
+# create a method called vowels
 	# define the vowels 
 	# if there is a space " ", leave it alone
 	# if the vowel is "u", make it an "a"
 	# if full_name includes vowels, then return the next vowel letter
-# create a method called consonant
+	# call the consonants method and pass the changed characters to the consonants method
+# create a method called consonants
 	# define the consonants
 	# if there is a space " ", leave it alone
 	# if the vowel is "z", make it an "b"
 	# if the full_name includes consonants, then return the next consonant letter
+	# join and capitalize the new encrypted name
+	# then return the new encrypted name
 
 #commit message changes => edit pseudocode
 
@@ -62,9 +66,11 @@ def consonants(characters)
 				char
 			end
 		end
-	p characters.join(" ")
+	encrypted_name = characters.join("")
+	encrypted_name = encrypted_name.split(" ").map! {|name| name.capitalize}.join(" ")
+	p encrypted_name
 end
 
 
 
-encrypt_name("zagat")
+encrypt_name("felicia torres")
