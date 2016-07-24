@@ -7,6 +7,8 @@
 #   array.each do
 #     if array.include?(number)
 #       result = counter
+#     else 
+#       return nil
 #     end
 #     counter += 1
 #   end
@@ -19,7 +21,7 @@
 # puts  search_array(array, 24)
 # # => nil
 
-#release 1
+# release 1
 # def fib(num)
 #   first = 0
 #   second = 1
@@ -51,8 +53,10 @@ release 3
 1. Researching the bubble sort
 2. Paula - Found a general bubble_sort template and ran each line separately
    just to get a closer look at what it's actually doing. I definitely need to see
-   it in order to understand what is going on, especially being a visual person.
-3. Paula - I personally feel quite curious as I felt that to swap array values
+   it in order to understand what is going on, especially being a visual person. Actually
+   even before all that I looked at the bubble_sort and just guessed what each line would
+   and then run it to see if what I thought was correct. Then ran each line separately.
+3. Paula - I personally felt quite curious as I felt that to swap array values
     to another array values would be much simpler, also when I first saw the method 
     I thought it looked more complicated but after talking it out, it makes a lot of
     sense as to what it is doing. I should probably write out what the method is doing
@@ -72,28 +76,28 @@ release 3
           #return the array
 =end
 
-def bubble_sort(array)
-  array_length = array.length
-  loop do
-    sort = false
+# def bubble_sort(array)
+#   array_length = array.length
+#   loop do
+#     sort = false
 
-    (array_length -1).times do |num|
-      if array[num] > array[num+1]
-        array[num], array[num+1] = array[num+1], array[num]
-        sort = true
-      end
-    end
+#     (array_length -1).times do |num|
+#       if array[num] > array[num+1]
+#         array[num], array[num+1] = array[num+1], array[num]
+#         sort = true
+#       end
+#     end
 
-    break if not sort
-  end
+#     break if not sort
+#   end
 
-  array
-end
+#   array
+# end
 
 
-random_numbers = [9, 3, 7, 1, 6, 4, 8]
+# random_numbers = [9, 3, 7, 1, 6, 4, 8]
 
-puts bubble_sort(random_numbers)
+# puts bubble_sort(random_numbers)
 
 
 
