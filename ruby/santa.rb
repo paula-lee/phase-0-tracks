@@ -1,7 +1,4 @@
 class Santa
-	attr_reader :age, :ethnicity, :reindeer_ranking
-	attr_accessor :gender
-
 	def initialize(gender, ethnicity, santa_name)
 		@gender = gender
 		@ethnicity = ethnicity
@@ -9,6 +6,25 @@ class Santa
 		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
 		@age = 0
 		# puts "Initializing Santa instance..."
+	end
+
+
+	#getter methods
+	def age
+		@age
+	end
+
+	def ethnicity
+		@ethnicity
+	end
+
+	def reindeer_ranking
+		@reindeer_ranking
+	end
+
+	#setter method
+	def gender=(new_gender)
+		@gender = new_gender
 	end
 
 	def celebrate_birthday
@@ -19,7 +35,7 @@ class Santa
 	def get_mad_at(reindeer_name)
 		if @reindeer_ranking.include?(reindeer_name)
 			@reindeer_ranking = @reindeer_ranking.insert(-1, @reindeer_ranking.delete_at(@reindeer_ranking.index(reindeer_name)))
-			puts "#{@reindeer_ranking}"
+			puts "The new ranking is: #{@reindeer_ranking}"
 		else
 			puts "Error: That is not one of the reindeer names"
 		end
@@ -56,4 +72,4 @@ santa.eat_milk_and_cookies("white chocolate chip")
 santa.reindeer_ranking
 santa.age
 santa.celebrate_birthday
-santa.get_mad_at("Later")
+santa.get_mad_at("Comet")
