@@ -54,7 +54,7 @@ class Santa
 
 end
 
-santa_info = []
+# santa_info = []
 
 genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
 ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
@@ -62,17 +62,18 @@ santa_name = ["Santa", "Santa Claus", "Kris", "Kris Kringle", "Pere Noel", "Sain
 cookie_type = ["chocolate chip cookie", "sugar cookie", "white chocolate chip cookie", "oatmeal raisin cookie", "m&m cookie"]
 
 puts "Here are the list of santas and their information: "
-random_count = 2 #rand(10)
-random_count.times do 
+random_count = rand(10) #could change to 10k but it's too much so I settled for 10
+random_count.times do |num|
 	santa = Santa.new(genders.sample, ethnicities.sample, santa_name.sample)
 	puts "----------------------------------------------------------------------------------------"
-	puts "#{santa.speak}"
-	puts "#{santa.eat_milk_and_cookies(cookie_type.sample)}"
+	puts "About Santa #{num+1}: "
+	# puts "#{santa.speak}"
+	# puts "#{santa.eat_milk_and_cookies(cookie_type.sample)}"
 	puts "My santa name is #{santa.santa_name}, I am #{santa.age} years old, I am #{santa.gender}, and I am #{santa.ethnicity}."
 	random_reindeer_name = santa.reindeer_ranking.sample
 	puts "#{santa.santa_name} got mad at #{random_reindeer_name} and is now last in the reindeer ranking."
 	puts "#{santa.get_mad_at(random_reindeer_name)}"
-	puts "It's someone's birthday! #{santa.santa_name} is now #{santa.celebrate_birthday}!!"
+	puts "It's #{santa.santa_name}'s birthday! #{santa.santa_name} is now #{santa.celebrate_birthday}!!"
 end
 
 
