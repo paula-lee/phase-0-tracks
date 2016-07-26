@@ -1,18 +1,26 @@
 # release 0
 
-# SPECIES ------------------------
+# CLASS ------------------------
 # Puppy
 
-# CHARACTERISTICS ----------------
+# ATTRIBUTES ----------------
 # Breed:
 # Weight:
 # Friendly: 
 # Name: 
 # Coat Color:
+# Hyper-level:
 
-# BEHAVIOR -----------------------
+# METHODS -----------------------
 # Bark
-# Playful
-# Cuddler
+# Fetch
+# Shake hands
 
 
+
+class Puppy
+end
+
+tokki = Puppy.new
+mandu = Puppy.new
+penny = Puppy.new
