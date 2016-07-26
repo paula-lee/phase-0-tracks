@@ -1,7 +1,7 @@
 # release 0
 
 # SPECIES ------------------------
-# Puppy
+# Dog
 
 # CHARACTERISTICS ----------------
 # Breed:
@@ -9,6 +9,7 @@
 # Friendly: 
 # Name: 
 # Coat Color:
+# Hyper-level:
 
 # BEHAVIOR -----------------------
 # Bark
@@ -16,3 +17,6 @@
 # Cuddler
 
 
+
+class Puppy
+end
