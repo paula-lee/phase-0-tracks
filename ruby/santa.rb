@@ -1,4 +1,6 @@
 class Santa
+	attr_reader :age, :ethnicity, :reindeer_ranking
+	attr_accessor :gender
 
 	def initialize(gender, ethnicity, santa_name)
 		@gender = gender
@@ -7,6 +9,11 @@ class Santa
 		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
 		@age = 0
 		# puts "Initializing Santa instance..."
+	end
+
+	def celebrate_birthday
+		@age = @age +=1 
+		puts @age
 	end
 
 	def speak
@@ -19,11 +26,11 @@ class Santa
 
 end
 
-# santa_info = []
+santa_info = []
 
-# genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
-# ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
-# santa_name = ["Santa", "Santa Claus", "Kris", "Kris Kringle", "Pere Noel", "Saint Nick", "Nick"]
+genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+santa_name = ["Santa", "Santa Claus", "Kris", "Kris Kringle", "Pere Noel", "Saint Nick", "Nick"]
 
 # puts "Making santas"
 # genders.length.times do |num|
@@ -34,8 +41,9 @@ p santa_info
 
 
 
-# santa = Santa.new("girl", "asian")
-# santa.speak
-# santa.eat_milk_and_cookies("white chocolate chip")
-# santa.reindeer_ranking
-# santa.age
+santa = Santa.new("girl", "asian", "Pere Noel")
+santa.speak
+santa.eat_milk_and_cookies("white chocolate chip")
+santa.reindeer_ranking
+santa.age
+santa.celebrate_birthday
