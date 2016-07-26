@@ -16,6 +16,15 @@ class Santa
 		puts @age
 	end
 
+	def get_mad_at(reindeer_name)
+		if @reindeer_ranking.include?(reindeer_name)
+			@reindeer_ranking = @reindeer_ranking.insert(-1, @reindeer_ranking.delete_at(@reindeer_ranking.index(reindeer_name)))
+			puts "#{@reindeer_ranking}"
+		else
+			puts "Error: That is not one of the reindeer names"
+		end
+	end
+
 	def speak
 		puts "Ho, ho, ho! Haaaappy holidays!"
 	end
@@ -47,3 +56,4 @@ santa.eat_milk_and_cookies("white chocolate chip")
 santa.reindeer_ranking
 santa.age
 santa.celebrate_birthday
+santa.get_mad_at("Later")
