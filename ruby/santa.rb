@@ -1,6 +1,6 @@
 class Santa
-	attr_reader :age, :ethnicity, :reindeer_ranking
-	attr_accessor :gender, :santa_name
+	attr_reader :age, :ethnicity, :reindeer_ranking, :santa_name
+	attr_accessor :gender
 
 	def initialize(gender, ethnicity, santa_name)
 		# puts "Initializing Santa instance..."
@@ -38,7 +38,7 @@ class Santa
 	def get_mad_at(reindeer_name)
 		if @reindeer_ranking.include?(reindeer_name)
 			@reindeer_ranking = @reindeer_ranking.insert(-1, @reindeer_ranking.delete_at(@reindeer_ranking.index(reindeer_name)))
-			puts "The new ranking is: #{@reindeer_ranking}"
+			puts "The new ranking is: #{@reindeer_ranking.join(", ")}"
 		else
 			puts "Error: That is not one of the reindeer names"
 		end
