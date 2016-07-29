@@ -11,5 +11,7 @@
 	describe Pokemon do
 		let(:game) { Pokemon.new }
 
-		it
+		it "returns an element from the array" do
+			expect(["bulbasaur", "charmander", "pikachu", "squirtle"]).to include(game.pick_pokemon)
+		end
 	end
