@@ -15,19 +15,25 @@
 	# 	pokemon variable name
 
 class Pokemon
-	attr_reader :pokemon_names, :whos_that_pokemon
+	attr_reader :pokemon_names, :whos_that_pokemon, :guess_count, :game_over, :user_input
 
 	def initialize
 		@pokemon_names = ["bulbasaur", "charmander", "pikachu", "squirtle"]
 		@guess_count = 0
 		@game_over = false
-		@whos_that_pokemon = ""
+		@user_input = []
 	end
 
 	def pick_pokemon
-		p @pokemon_names.sample
+		@whos_that_pokemon = @pokemon_names.sample.split("")
 	end
+
+	# def split_pokemon_name
+	# 	p @whos_that_pokemon.split("")
+	# end
 end
 
-# game = Pokemon.new
-# game.pick_pokemon
+game = Pokemon.new
+p game.pokemon_names
+# p game.pick_pokemon.split("")
+# game.split_pokemon_name
