@@ -8,7 +8,7 @@
 		# create an instance variable called user input that equals to a blank array
 
 	# define method pick pokemon
-	# 	choose a random pokemon from the pokemon names instance variable 
+	# 	player 1 will enter a pokemon name that player 2 has to guess
 	# 	split it by character so that it becomes an array with each letter
 	# 	as a value. 
 	#   Have the split pokemon name chosen to equal to who’s that 
@@ -22,25 +22,27 @@
 		let(:game) { Pokemon.new }
 
 		#test initalize
-		it "returns the array of pokemon from pokemon names" do
-			expect(game.pokemon_names).to eq(["bulbasaur", "charmander", "pikachu", "squirtle"])
-		end
+		# it "returns the array of pokemon from pokemon names" do
+		# 	expect(game.pokemon_names).to eq(["bulbasaur", "charmander", "pikachu", "squirtle"])
+		# end
 
-		it "returns the initial guess count is at zero" do
-			expect(game.guess_count).to eq(0)
-		end
+		# it "returns the initial guess count is at zero" do
+		# 	expect(game.guess_count).to eq(0)
+		# end
 
-		it "returns that the game is not over which equals to false" do
-			expect(game.game_over).to be false
-		end
+		# it "returns that the game is not over which equals to false" do
+		# 	expect(game.game_over).to be false
+		# end
 
-		it "returns initially a blank array from the user input variable" do
-			expect(game.user_input).to eq([])
+		# it "returns initially a blank array from the user input variable" do
+		# 	expect(game.user_input).to eq([])
+		# end
+
+		it "get pokemon name from user and return underscores the length of the pokemon name" do
+			expect(game.get_pokemon_name("bulbasaur")).to eq("_ _ _ _ _ _ _ _ _")
 		end
 
 		
-
-
 
 
 
