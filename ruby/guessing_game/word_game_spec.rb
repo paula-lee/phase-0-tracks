@@ -14,7 +14,7 @@
 	#   Have the split pokemon name chosen to equal to who’s that 
 	# 	pokemon variable name
 
-	
+
 
 
 
@@ -36,6 +36,10 @@
 		it "inserts the users input if correct, to be displayed" do
 			expect(game.check_letter("b")).to eq("b _ _ b _ _ _ _ _")
 			# puts game
+		end
+
+		it "counts how many guesses and returns how many are left" do
+			expect(game.guess_count_check).to be false
 		end
 
 

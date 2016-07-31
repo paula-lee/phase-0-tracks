@@ -64,11 +64,22 @@ class Pokemon
 		@output.join(" ")
 	end
 
+	def guess_count_check
+		@guess_count += 1
+		if @whos_that_pokemon.length < @guess_count
+			puts "You are out of guesses"
+			@game_over = true
+		else
+			puts "You have #{whos_that_pokemon.length - @guess_count} guesses left."
+			@game_over
+		end
 
+	end
 
 
 end
 
-game = Pokemon.new("bulbasaur")
-game.convert_pokemon_name
-puts game.check_letter("b")
+# game = Pokemon.new("bulbasaur")
+# game.convert_pokemon_name
+# puts game.check_letter("r")
+# game.guess_count_check
