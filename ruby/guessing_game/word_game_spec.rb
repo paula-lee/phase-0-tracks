@@ -14,36 +14,29 @@
 	#   Have the split pokemon name chosen to equal to who’s that 
 	# 	pokemon variable name
 
+	
+
 
 
 	require_relative 'word_game'
 
 	describe Pokemon do
-		let(:game) { Pokemon.new }
+		let(:game) { Pokemon.new("bulbasaur") }
 
-		#test initalize
-		# it "returns the array of pokemon from pokemon names" do
-		# 	expect(game.pokemon_names).to eq(["bulbasaur", "charmander", "pikachu", "squirtle"])
-		# end
-
-		# it "returns the initial guess count is at zero" do
-		# 	expect(game.guess_count).to eq(0)
-		# end
-
-		# it "returns that the game is not over which equals to false" do
-		# 	expect(game.game_over).to be false
-		# end
-
-		# it "returns initially a blank array from the user input variable" do
-		# 	expect(game.user_input).to eq([])
-		# end
-
-		it "get pokemon name from user and return underscores the length of the pokemon name" do
-			expect(game.get_pokemon_name("bulbasaur")).to eq("_ _ _ _ _ _ _ _ _")
+		it "stores the pokemon name given in initializion" do
+			expect(game.pokemon_name).to eq "bulbasaur"
+			# puts game
 		end
 
-		
+		it "gets pokemon name from user and return underscores the length of the pokemon name" do
+			expect(game.convert_pokemon_name).to eq("_ _ _ _ _ _ _ _ _")
+			# puts game
+		end
 
+		it "inserts the users input if correct, to be displayed" do
+			expect(game.check_letter("b")).to eq("b _ _ b _ _ _ _ _")
+			# puts game
+		end
 
 
 	end
