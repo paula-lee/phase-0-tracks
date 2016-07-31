@@ -24,18 +24,21 @@
 					# display the correct letter the user input
 				# else put that the letter inputted does not exist
 
+	# define method guess_count_check
+	# 	the guess count will add one each time the user guess a letter
+	# 	if the guess count exceeds the pokemon name length
+	# 		put ‘you are out of guesses’
+
 
 class Pokemon
 	attr_reader :guess_count, :game_over, :pokemon_name, :whos_that_pokemon
 
 	def initialize(pokemon_name)
-		# @pokemon_names = ["bulbasaur", "charmander", "pikachu", "squirtle"]
 		@guess_count = 0
 		@game_over = false
 		@user_input = []
 		@pokemon_name = pokemon_name
 		convert_pokemon_name
-		# @whos_that_pokemon = pokemon_name
 	end
 
 	def convert_pokemon_name
@@ -64,22 +67,70 @@ class Pokemon
 		@output.join(" ")
 	end
 
+	def check_match
+		p @whos_that_pokemon.join(" ")
+		if @output.join(" ") == @whos_that_pokemon.join(" ")
+			puts "Congratulations you won!!!!!!!"
+		else
+			puts "Wow.... that bad huh?"
+		end
+
+	end
+
 	def guess_count_check
 		@guess_count += 1
-		if @whos_that_pokemon.length < @guess_count
+		if @whos_that_pokemon.length <= @guess_count
 			puts "You are out of guesses"
+			check_match
 			@game_over = true
 		else
 			puts "You have #{whos_that_pokemon.length - @guess_count} guesses left."
 			@game_over
 		end
-
 	end
 
 
 end
 
-# game = Pokemon.new("bulbasaur")
-# game.convert_pokemon_name
-# puts game.check_letter("r")
-# game.guess_count_check
+# puts "Welcome to the Pokemon Guessing Game"
+# puts
+# puts "What Pokemon name would you like the player to guess?"
+# pokemon = gets.chomp.downcase
+# game = Pokemon.new(pokemon)
+
+# puts "Alright let's start!!"
+# puts game.convert_pokemon_name
+
+# while !game.game_over
+# 	puts "Please guess a letter (You may only put one letter at a time)."
+# 	users_guess = gets.chomp
+# 	puts game.check_letter(users_guess)
+# 	game.guess_count_check
+# end
+
+
+
+game = Pokemon.new("pikachu")
+game.convert_pokemon_name
+puts game.check_letter("p")
+puts game.guess_count_check
+game.convert_pokemon_name
+puts game.check_letter("i")
+puts game.guess_count_check
+game.convert_pokemon_name
+puts game.check_letter("k")
+puts game.guess_count_check
+game.convert_pokemon_name
+puts game.check_letter("a")
+puts game.guess_count_check
+game.convert_pokemon_name
+puts game.check_letter("c")
+puts game.guess_count_check
+game.convert_pokemon_name
+puts game.check_letter("h")
+puts game.guess_count_check
+game.convert_pokemon_name
+puts game.check_letter("u")
+puts game.guess_count_check
+
+
