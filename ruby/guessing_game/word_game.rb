@@ -30,8 +30,10 @@
 	# 		put ‘you are out of guesses’
 
 
+require 'io/console'
+
 class Pokemon
-	attr_reader :guess_count, :game_over, :pokemon_name, :whos_that_pokemon
+	attr_reader :guess_count, :num_of_guesses, :pokemon_name, :game_over
 
 	def initialize(pokemon_name)
 		@guess_count = 0
@@ -39,6 +41,7 @@ class Pokemon
 		@user_input = []
 		@pokemon_name = pokemon_name
 		convert_pokemon_name
+		@num_of_guesses = @whos_that_pokemon.length
 	end
 
 	def convert_pokemon_name
@@ -52,8 +55,14 @@ class Pokemon
 
 	def check_letter(letter)
 		if @whos_that_pokemon.include?(letter)
-			@user_input << letter
-		else 
+			if @user_input.include?(letter)
+				puts "You already guessed #{letter}. Try again!"
+			else
+				puts "Great guess!!"
+				@user_input << letter
+			end
+		else
+			@guess_count += 1
 			puts "There is no #{letter}. Guess again"
 		end
 
@@ -67,24 +76,25 @@ class Pokemon
 		@output.join(" ")
 	end
 
-	def check_match
-		p @whos_that_pokemon.join(" ")
-		if @output.join(" ") == @whos_that_pokemon.join(" ")
-			puts "Congratulations you won!!!!!!!"
-		else
-			puts "Wow.... that bad huh?"
-		end
+	# def check_match
+	# 	if @output.join(" ") == @whos_that_pokemon.join(" ")
+	# 		"Congratulations you won!!!!!!!"
+	# 	else
+	# 		"GAME OVER! Wow.... that bad huh?"
+	# 	end
 
-	end
+	# end
 
 	def guess_count_check
-		@guess_count += 1
-		if @whos_that_pokemon.length <= @guess_count
-			puts "You are out of guesses"
-			check_match
+		if @whos_that_pokemon == @output
+			puts "Congratulations you won!!!!!!!"
 			@game_over = true
+		elsif @whos_that_pokemon.length <= @guess_count
+			# puts "You are out of guesses"
+			@game_over = true
+			puts "GAME OVER! Wow.... that bad huh?"
 		else
-			puts "You have #{whos_that_pokemon.length - @guess_count} guesses left."
+			# puts "You have #{whos_that_pokemon.length - @guess_count} guesses left."
 			@game_over
 		end
 	end
@@ -92,45 +102,48 @@ class Pokemon
 
 end
 
-# puts "Welcome to the Pokemon Guessing Game"
-# puts
-# puts "What Pokemon name would you like the player to guess?"
-# pokemon = gets.chomp.downcase
-# game = Pokemon.new(pokemon)
+puts "Welcome to the Pokemon Guessing Game!!!!!!!!"
+puts
+puts "Player 1 will type in the word for Player 2 to guess :)"
+puts
+puts "Player 1: Please type in one of the four starter pokemon, then press enter:"
+puts "bulbasaur, charmander, squirtle, pikachu"
+puts "(NOTE: you won't be able to see what you are typing)"
+choose_pokemon = STDIN.noecho { |i| i.gets}.chomp
+game = Pokemon.new(choose_pokemon)
 
-# puts "Alright let's start!!"
+puts "Alright Player 2, let's start!!"
+puts game.convert_pokemon_name
+
+while !game.game_over
+	puts "Please guess a letter (You may only put one letter at a time)."
+	users_guess = gets.chomp.downcase
+
+	puts game.check_letter(users_guess)
+	game.guess_count_check
+	puts "You have #{game.num_of_guesses - game.guess_count} guesses left"
+end
+
+
+
+# RSPEC TEST DRIVER CODE
+# game = Pokemon.new("pikachu")
 # puts game.convert_pokemon_name
+# puts game.check_letter("p")
+# puts game.guess_count_check
+# puts game.convert_pokemon_name
+# puts game.check_letter("p")
+# puts game.guess_count_check
+# puts game.convert_pokemon_name
+# puts game.check_letter("z")
+# puts game.guess_count_check
 
 # while !game.game_over
-# 	puts "Please guess a letter (You may only put one letter at a time)."
-# 	users_guess = gets.chomp
-# 	puts game.check_letter(users_guess)
-# 	game.guess_count_check
+# 	puts "Type letter"
+# 	letter = gets.chomp
+# 	puts game.check_letter(letter)
+# 	puts game.guess_count_check
 # end
 
-
-
-game = Pokemon.new("pikachu")
-game.convert_pokemon_name
-puts game.check_letter("p")
-puts game.guess_count_check
-game.convert_pokemon_name
-puts game.check_letter("i")
-puts game.guess_count_check
-game.convert_pokemon_name
-puts game.check_letter("k")
-puts game.guess_count_check
-game.convert_pokemon_name
-puts game.check_letter("a")
-puts game.guess_count_check
-game.convert_pokemon_name
-puts game.check_letter("c")
-puts game.guess_count_check
-game.convert_pokemon_name
-puts game.check_letter("h")
-puts game.guess_count_check
-game.convert_pokemon_name
-puts game.check_letter("u")
-puts game.guess_count_check
 
 
