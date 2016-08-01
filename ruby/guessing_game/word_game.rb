@@ -1,22 +1,26 @@
 # create a class called Pokemon
 	# initialize method
-		# create an instance variable called pokemon names and it is equal to
-		# an array of pokemon names.
+		# initialize has a parameter called pokemon_name that takes an argument from the user
 		# create an instance variable called guess count that is equal to zero
 		# create an instance variable called game over and have that equal to
 		# false.
 		# create an instance variable called user input that equals to a blank array
+		# create an instance variable called pokemon name and have it equal to the argument passed
+		# create an instance variable called num of guesses 
+		# and have it equal to the length of the pokemon name
 
 	# define method pick pokemon
-	# 	player 1 will enter a pokemon name that player 2 has to guess
-	# 	split it by character so that it becomes an array with each letter
+	# 	split pokemon name by character so that it becomes an array with each letter
 	# 	as a value. 
-	#   Have the split pokemon name chosen to equal to who’s that 
+	#   have the split pokemon name equal to who’s that 
 	# 	pokemon variable name
 
 	# define method check letter	
 	# 	if the letter from the input is included in the who’s that pokemon variable
-	# 		input that letter into the user input array.	
+	# 		if user input already has letter from previous guess
+	# 			put you already guess this letter
+	# 		else input that letter into the user input array.
+	# 	else this letter is not in the word		
 
 	# 	iterate through the whos that pokemon array with the value and the index
 	# 		iterate through the user input array with the value
@@ -25,9 +29,10 @@
 				# else put that the letter inputted does not exist
 
 	# define method guess_count_check
-	# 	the guess count will add one each time the user guess a letter
+	# 	if the pokemon name is equal to the output
+	# 		put congratulations you won!
 	# 	if the guess count exceeds the pokemon name length
-	# 		put ‘you are out of guesses’
+	# 		put game over, you lose
 
 
 require 'io/console'
@@ -76,25 +81,14 @@ class Pokemon
 		@output.join(" ")
 	end
 
-	# def check_match
-	# 	if @output.join(" ") == @whos_that_pokemon.join(" ")
-	# 		"Congratulations you won!!!!!!!"
-	# 	else
-	# 		"GAME OVER! Wow.... that bad huh?"
-	# 	end
-
-	# end
-
 	def guess_count_check
 		if @whos_that_pokemon == @output
 			puts "Congratulations you won!!!!!!!"
 			@game_over = true
 		elsif @whos_that_pokemon.length <= @guess_count
-			# puts "You are out of guesses"
 			@game_over = true
 			puts "GAME OVER! Wow.... that bad huh?"
 		else
-			# puts "You have #{whos_that_pokemon.length - @guess_count} guesses left."
 			@game_over
 		end
 	end
@@ -102,17 +96,20 @@ class Pokemon
 
 end
 
+
+
+#USER INPUT
 puts "Welcome to the Pokemon Guessing Game!!!!!!!!"
 puts
 puts "Player 1 will type in the word for Player 2 to guess :)"
 puts
 puts "Player 1: Please type in one of the four starter pokemon, then press enter:"
-puts "bulbasaur, charmander, squirtle, pikachu"
+puts "Choices: bulbasaur, charmander, squirtle, pikachu"
 puts "(NOTE: you won't be able to see what you are typing)"
 choose_pokemon = STDIN.noecho { |i| i.gets}.chomp
 game = Pokemon.new(choose_pokemon)
 
-puts "Alright Player 2, let's start!!"
+puts "Alright Player 2, let's start guessing!!"
 puts game.convert_pokemon_name
 
 while !game.game_over
@@ -138,12 +135,6 @@ end
 # puts game.check_letter("z")
 # puts game.guess_count_check
 
-# while !game.game_over
-# 	puts "Type letter"
-# 	letter = gets.chomp
-# 	puts game.check_letter(letter)
-# 	puts game.guess_count_check
-# end
 
 
 

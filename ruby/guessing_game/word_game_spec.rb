@@ -38,19 +38,15 @@
 			# puts game
 		end
 
-		it "returns congratulation message if the user inputs the correct pokemon name" do
+		it "checks if user's input is equal to the secret word" do
 			game.check_letter("p")
-			game.check_letter("i")
-			game.check_letter("k")
-			game.check_letter("a")
-			game.check_letter("c")
-			game.check_letter("h")
-			game.check_letter("u")
-			expect(game.check_match).to eq "Congratulations you won!!!!!!!"
-		end
-
-		it "counts how many guesses and returns how many are left" do
-			expect(game.guess_count_check).to be false
+		 	game.check_letter("i")
+		 	game.check_letter("k")
+		 	game.check_letter("a")
+		 	game.check_letter("c")
+		 	game.check_letter("h")
+		 	game.check_letter("u")
+			expect(game.guess_count_check).to be true
 		end
 
 	end
