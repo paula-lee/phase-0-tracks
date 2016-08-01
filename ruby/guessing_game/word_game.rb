@@ -98,7 +98,7 @@ end
 
 
 
-#DRIVER CODE
+#USER INPUT
 puts "Welcome to the Pokemon Guessing Game!!!!!!!!"
 puts
 puts "Player 1 will type in the word for Player 2 to guess :)"
