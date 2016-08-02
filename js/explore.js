@@ -20,5 +20,6 @@ function reverse(word) {
 var result = reverse("JavaScript");
 console.log(result);
 
-result = reverse("dangerous")
-console.log(result);
+if (1===1) {
+	console.log(result);
+} 
