@@ -35,7 +35,7 @@
 	# 		put game over, you lose
 
 
-require 'io/console'
+require 'io/console' #to make sure player 2 doesn't see the input from player 1
 
 class Pokemon
 	attr_reader :guess_count, :num_of_guesses, :pokemon_name, :game_over
@@ -98,7 +98,7 @@ end
 
 
 
-#DRIVER CODE
+#USER INPUT
 puts "Welcome to the Pokemon Guessing Game!!!!!!!!"
 puts
 puts "Player 1 will type in the word for Player 2 to guess :)"
