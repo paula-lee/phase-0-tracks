@@ -55,9 +55,12 @@ function matchObjects(object1, object2) {
 // note to self: if you do console.log(matchObject(name1,name2));
 	// it will return as undefined because it's already printing
 	// in the function
-var name1 = {name: "Steven", age: 54};
-var name2 = {nickname: "Tamir", age: 54};
-matchObjects(name1, name2);
+// var name1 = {name: "Steven", age: 54};
+// var name2 = {nickname: "Tamir", age: 54};
+// matchObjects(name1, name2);
+// var icecream = {popular: "Strawberry", least: "Banana"};
+// var shakes = {popular: "Strawberry", least: "Peanut Butter"};
+// matchObjects(icecream, shakes);
 
 // Driver code for release 0
 // var phrase = ["long phrase", "longest phrase", "longer phrase"];
