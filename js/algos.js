@@ -11,18 +11,18 @@
 		// then that word will be equal to the variable largest
 		// then if it is the largest word it will be assigned to the variable word
 
-// function longestWord(array) {
-// 	largest = 0; 
-// 	word = "";
+function longestWord(array) {
+	largest = 0; 
+	word = "";
 
-// 	for (var i = 0; i < array.length; i++) {
-// 		if (array[i].length > largest) {
-// 			largest = array[i].length;
-// 			word = array[i];
-// 		}
-// 	}
-// 	console.log(word);
-// }
+	for (var i = 0; i < array.length; i++) {
+		if (array[i].length > largest) {
+			largest = array[i].length;
+			word = array[i];
+		}
+	}
+	console.log(word);
+}
 
 
 // Release 1: Find a Key-Value Match
@@ -54,14 +54,28 @@
 // Release 2: Generate Random Test Data
 // pseudocode:
 // create a function called randomWord
-// the function will have one parameter that takes an integer "num"
-// create a blank array called word
-	//create a for loop and loop "num" times
-		// generate a random word between 1 to 10 letters long
+// the function will have one parameter that takes an integer "number"
+// create an array with words with the length of 1 to 10 letters long
+	//create a for loop and loop "number" times
+		// randomly choose words from the array and
 		// push that letter(s) into the word array
 	 // test which word is longest using the longestWord function
 
+randomWords = ["z", "mmm", "to", "four", "pizza", "crispy", "lantern", "jumpjump", "potndlskt", "wwwwwwmwww"];
 
+function randomWord(number) {
+	var wordArray = []
+	for (var i = 0; i < number; i++) {
+		wordArray.push(randomWords[Math.floor(Math.random() * 10) + 0]);
+	}
+	console.log(wordArray);
+	longestWord(wordArray);
+}
+
+// Driver code for release 2
+for (var i = 0; i < 10; i++) {
+	randomWord(Math.floor(Math.random() * 10) +1);
+}
 
 
 // Driver code for release 1
