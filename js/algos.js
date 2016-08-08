@@ -25,7 +25,6 @@
 // }
 
 
-
 // Release 1: Find a Key-Value Match
 // pseudocode:
 // create a function called matchObjects
@@ -37,19 +36,33 @@
 				// return that the key/value match from both objects are true
 		//  else there were no matches
 
-function matchObjects(object1, object2) {
-	for (var i = 0; i < Object.keys(object1).length; i++) {
-		if (Object.keys(object1)[i] === Object.keys(object2)[i]) {
-			if (object1[Object.keys(object1)[i]] === object2[Object.keys(object2)[i]]) {
-				console.log(true);
-			} else {
-				console.log(false);
-			}
-		} else {
-			console.log(false);
-		}
-	}
-}
+// function matchObjects(object1, object2) {
+// 	for (var i = 0; i < Object.keys(object1).length; i++) {
+// 		if (Object.keys(object1)[i] === Object.keys(object2)[i]) {
+// 			if (object1[Object.keys(object1)[i]] === object2[Object.keys(object2)[i]]) {
+// 				console.log(true);
+// 			} else {
+// 				console.log(false);
+// 			}
+// 		} else {
+// 			console.log(false);
+// 		}
+// 	}
+// }
+
+
+// Release 2: Generate Random Test Data
+// pseudocode:
+// create a function called randomWord
+// the function will have one parameter that takes an integer "num"
+// create a blank array called word
+	//create a for loop and loop "num" times
+		// generate a random word between 1 to 10 letters long
+		// push that letter(s) into the word array
+	 // test which word is longest using the longestWord function
+
+
+
 
 // Driver code for release 1
 // note to self: if you do console.log(matchObject(name1,name2));
