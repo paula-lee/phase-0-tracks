@@ -101,3 +101,45 @@ Result:
 	12|Nemo Nguyen|26|Male|True|4
 	13|Oscar Lopez|44|Male|True|1
 	16|Tony Johnson|64|Male|True|4
+
+
+
+RELEASE 3: Research on Your Own
+
+1. INNER JOIN - most common join; returns all rows from multiple tables where
+the condition is met
+
+Code: 
+	SELECT doctors.name, patients.name FROM patients INNER JOIN doctors ON patients.doctor_id = doctors.id;
+
+Result:
+	Dr. Terry Larson|Angela Tran
+	Dr. Jessica Bautista|Ashley Schilling
+	Dr. Chris Adams|Connie Noukas
+	Dr. Vivian Le|Daniel Sun
+	Dr. Jessica Bautista|Frank Patel
+	Dr. Vivian Le|Helen Rios
+	Dr. Jessica Bautista|Liz Smith
+	Dr. Chris Adams|Megan Schwartz
+	Dr. Vivian Le|Nemo Nguyen
+	Dr. Terry Larson|Oscar Lopez
+	Dr. Vivian Le|Tony Johnson
+
+2. OUTER JOIN => sqlite only supports LEFT OUTER JOIN, even though 
+there is LEFT, RIGHT, and FULL OUTER JOIN types. Returns all rows from
+left-hand table specified in the ON condition.
+
+Code: 
+	SELECT * FROM doctors LEFT OUTER JOIN patients on doctors.id = patients.doctor_id;
+
+Result: 	
+	1|Dr. Terry Larson||||||
+	2|Dr. Jessica Bautista|2|Ashley Schilling|52|Female|True|2
+	2|Dr. Jessica Bautista|6|Frank Patel|25|Male|True|2
+	2|Dr. Jessica Bautista|10|Liz Smith|53|Female|True|2
+	3|Dr. Chris Adams|3|Connie Noukas|35|Male|True|3
+	3|Dr. Chris Adams|11|Megan Schwartz|34|Female|True|3
+	4|Dr. Vivian Le|4|Daniel Sun|28|Male|True|4
+	4|Dr. Vivian Le|8|Helen Rios|39|Female|True|4
+	4|Dr. Vivian Le|12|Nemo Nguyen|26|Male|True|4
+	4|Dr. Vivian Le|16|Tony Johnson|64|Male|True|4
