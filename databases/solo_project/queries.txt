@@ -57,3 +57,26 @@ Result:
 	14|Ryan Kim|68|Male|False|2|2|Dr. Jessica Bautista
 	15|Sherry Rodas|71|Female|False|3|3|Dr. Chris Adams
 	16|Tony Johnson|64|Male|True|4|4|Dr. Vivian Le
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+
+Code: 
+	SELECT patients.name, doctors.name FROM patients JOIN doctors ON patients.doctor_id = doctors.id;
+
+Result:
+	Angela Tran|Dr. Terry Larson
+	Ashley Schilling|Dr. Jessica Bautista
+	Connie Noukas|Dr. Chris Adams
+	Daniel Sun|Dr. Vivian Le
+	Ender Khan|Dr. Terry Larson
+	Frank Patel|Dr. Jessica Bautista
+	Gina Nguyen|Dr. Chris Adams
+	Helen Rios|Dr. Vivian Le
+	Joe To|Dr. Terry Larson
+	Liz Smith|Dr. Jessica Bautista
+	Megan Schwartz|Dr. Chris Adams
+	Nemo Nguyen|Dr. Vivian Le
+	Oscar Lopez|Dr. Terry Larson
+	Ryan Kim|Dr. Jessica Bautista
+	Sherry Rodas|Dr. Chris Adams
+	Tony Johnson|Dr. Vivian Le
