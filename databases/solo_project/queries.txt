@@ -101,3 +101,53 @@ Result:
 	12|Nemo Nguyen|26|Male|True|4
 	13|Oscar Lopez|44|Male|True|1
 	16|Tony Johnson|64|Male|True|4
+
+
+
+RELEASE 3: Research on Your Own
+
+1. INNER JOIN - most common join; returns all rows from multiple tables where
+the condition is met
+
+Code: 
+	SELECT doctors.name, patients.name FROM patients INNER JOIN doctors ON patients.doctor_id = doctors.id;
+
+Result:
+	Dr. Terry Larson|Angela Tran
+	Dr. Jessica Bautista|Ashley Schilling
+	Dr. Chris Adams|Connie Noukas
+	Dr. Vivian Le|Daniel Sun
+	Dr. Jessica Bautista|Frank Patel
+	Dr. Vivian Le|Helen Rios
+	Dr. Jessica Bautista|Liz Smith
+	Dr. Chris Adams|Megan Schwartz
+	Dr. Vivian Le|Nemo Nguyen
+	Dr. Terry Larson|Oscar Lopez
+	Dr. Vivian Le|Tony Johnson
+
+2. OUTER JOIN => sqlite only supports LEFT OUTER JOIN, even though 
+there is LEFT, RIGHT, and FULL OUTER JOIN types. Returns all rows from
+left-hand table specified in the ON condition.
+
+Code: 
+	SELECT patients.doctor_id, doctors.name, patients.name FROM doctors LEFT OUTER JOIN patients ON doctors.id = patients.doctor_id;
+
+Result:
+	1|Dr. Terry Larson|Angela Tran
+	1|Dr. Terry Larson|Oscar Lopez
+	2|Dr. Jessica Bautista|Ashley Schilling
+	2|Dr. Jessica Bautista|Frank Patel
+	2|Dr. Jessica Bautista|Liz Smith
+	3|Dr. Chris Adams|Connie Noukas
+	3|Dr. Chris Adams|Megan Schwartz
+	4|Dr. Vivian Le|Daniel Sun
+	4|Dr. Vivian Le|Helen Rios
+	4|Dr. Vivian Le|Nemo Nguyen
+	4|Dr. Vivian Le|Tony Johnson
+
+3. CROSS JOIN
+
+Code:
+
+
+Result:
