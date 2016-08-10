@@ -80,3 +80,24 @@ Result:
 	Ryan Kim|Dr. Jessica Bautista
 	Sherry Rodas|Dr. Chris Adams
 	Tony Johnson|Dr. Vivian Le
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).
+
+Code:
+	DELETE FROM patients WHERE has_insurance="False";
+
+Code:
+	SELECT * FROM patients;
+
+Result:
+	1|Angela Tran|75|Female|True|1
+	2|Ashley Schilling|52|Female|True|2
+	3|Connie Noukas|35|Male|True|3
+	4|Daniel Sun|28|Male|True|4
+	6|Frank Patel|25|Male|True|2
+	8|Helen Rios|39|Female|True|4
+	10|Liz Smith|53|Female|True|2
+	11|Megan Schwartz|34|Female|True|3
+	12|Nemo Nguyen|26|Male|True|4
+	13|Oscar Lopez|44|Male|True|1
+	16|Tony Johnson|64|Male|True|4
