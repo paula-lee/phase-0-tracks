@@ -2,6 +2,41 @@ RELEASE 2: Execute SQL Queries
 
 1. Display the information in one table (either table is fine).
 
+Code:
+	SELECT * FROM patients;
+
+Result:
+	1|Angela Tran|75|Female|True|1
+	2|Ashley Schilling|52|Female|True|2
+	3|Connie Noukas|35|Male|True|3
+	4|Daniel Sun|28|Male|True|4
+	5|Ender Khan|47|Male|False|1
+	6|Frank Patel|25|Male|True|2
+	7|Gina Nguyen|62|Female|False|3
+	8|Helen Rios|39|Female|True|4
+	9|Joe To|41|Male|False|1
+	10|Liz Smith|53|Female|True|2
+	11|Megan Schwartz|34|Female|True|3
+	12|Nemo Nguyen|26|Male|True|4
+	13|Oscar Lopez|44|Male|True|1
+	14|Ryan Kim|68|Male|False|2
+	15|Sherry Rodas|71|Female|False|3
+	16|Tony Johnson|64|Male|True|4
+
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).
+
+Code: 
+	UPDATE patients SET has_insurance="True" WHERE name="Connie Noukas";
+
+Code: 
+	SELECT * FROM patients WHERE id=3;
+
+Result:
+	3|Connie Noukas|35|Male|True|3
+
+3. Display the information in both tables using one query.
+
 Code: 
 	SELECT * FROM patients JOIN doctors ON patients.doctor_id = doctors.id;
 
@@ -22,14 +57,3 @@ Result:
 	14|Ryan Kim|68|Male|False|2|2|Dr. Jessica Bautista
 	15|Sherry Rodas|71|Female|False|3|3|Dr. Chris Adams
 	16|Tony Johnson|64|Male|True|4|4|Dr. Vivian Le
-
-2. Update an item that meets some condition (you can choose a condition that makes sense).
-
-Code: 
-	UPDATE patients SET has_insurance="True" WHERE name="Connie Noukas";
-
-Code: 
-	SELECT * FROM patients WHERE id=3;
-
-Result:
-	3|Connie Noukas|35|Male|True|3
