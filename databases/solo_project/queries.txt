@@ -1,0 +1,103 @@
+RELEASE 2: Execute SQL Queries
+
+1. Display the information in one table (either table is fine).
+
+Code:
+	SELECT * FROM patients;
+
+Result:
+	1|Angela Tran|75|Female|True|1
+	2|Ashley Schilling|52|Female|True|2
+	3|Connie Noukas|35|Male|True|3
+	4|Daniel Sun|28|Male|True|4
+	5|Ender Khan|47|Male|False|1
+	6|Frank Patel|25|Male|True|2
+	7|Gina Nguyen|62|Female|False|3
+	8|Helen Rios|39|Female|True|4
+	9|Joe To|41|Male|False|1
+	10|Liz Smith|53|Female|True|2
+	11|Megan Schwartz|34|Female|True|3
+	12|Nemo Nguyen|26|Male|True|4
+	13|Oscar Lopez|44|Male|True|1
+	14|Ryan Kim|68|Male|False|2
+	15|Sherry Rodas|71|Female|False|3
+	16|Tony Johnson|64|Male|True|4
+
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).
+
+Code: 
+	UPDATE patients SET has_insurance="True" WHERE name="Connie Noukas";
+
+Code: 
+	SELECT * FROM patients WHERE id=3;
+
+Result:
+	3|Connie Noukas|35|Male|True|3
+
+3. Display the information in both tables using one query.
+
+Code: 
+	SELECT * FROM patients JOIN doctors ON patients.doctor_id = doctors.id;
+
+Result:
+	1|Angela Tran|75|Female|True|1|1|Dr. Terry Larson
+	2|Ashley Schilling|52|Female|True|2|2|Dr. Jessica Bautista
+	3|Connie Noukas|35|Male|False|3|3|Dr. Chris Adams
+	4|Daniel Sun|28|Male|True|4|4|Dr. Vivian Le
+	5|Ender Khan|47|Male|False|1|1|Dr. Terry Larson
+	6|Frank Patel|25|Male|True|2|2|Dr. Jessica Bautista
+	7|Gina Nguyen|62|Female|False|3|3|Dr. Chris Adams
+	8|Helen Rios|39|Female|True|4|4|Dr. Vivian Le
+	9|Joe To|41|Male|False|1|1|Dr. Terry Larson
+	10|Liz Smith|53|Female|True|2|2|Dr. Jessica Bautista
+	11|Megan Schwartz|34|Female|True|3|3|Dr. Chris Adams
+	12|Nemo Nguyen|26|Male|True|4|4|Dr. Vivian Le
+	13|Oscar Lopez|44|Male|True|1|1|Dr. Terry Larson
+	14|Ryan Kim|68|Male|False|2|2|Dr. Jessica Bautista
+	15|Sherry Rodas|71|Female|False|3|3|Dr. Chris Adams
+	16|Tony Johnson|64|Male|True|4|4|Dr. Vivian Le
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+
+Code: 
+	SELECT patients.name, doctors.name FROM patients JOIN doctors ON patients.doctor_id = doctors.id;
+
+Result:
+	Angela Tran|Dr. Terry Larson
+	Ashley Schilling|Dr. Jessica Bautista
+	Connie Noukas|Dr. Chris Adams
+	Daniel Sun|Dr. Vivian Le
+	Ender Khan|Dr. Terry Larson
+	Frank Patel|Dr. Jessica Bautista
+	Gina Nguyen|Dr. Chris Adams
+	Helen Rios|Dr. Vivian Le
+	Joe To|Dr. Terry Larson
+	Liz Smith|Dr. Jessica Bautista
+	Megan Schwartz|Dr. Chris Adams
+	Nemo Nguyen|Dr. Vivian Le
+	Oscar Lopez|Dr. Terry Larson
+	Ryan Kim|Dr. Jessica Bautista
+	Sherry Rodas|Dr. Chris Adams
+	Tony Johnson|Dr. Vivian Le
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).
+
+Code:
+	DELETE FROM patients WHERE has_insurance="False";
+
+Code:
+	SELECT * FROM patients;
+
+Result:
+	1|Angela Tran|75|Female|True|1
+	2|Ashley Schilling|52|Female|True|2
+	3|Connie Noukas|35|Male|True|3
+	4|Daniel Sun|28|Male|True|4
+	6|Frank Patel|25|Male|True|2
+	8|Helen Rios|39|Female|True|4
+	10|Liz Smith|53|Female|True|2
+	11|Megan Schwartz|34|Female|True|3
+	12|Nemo Nguyen|26|Male|True|4
+	13|Oscar Lopez|44|Male|True|1
+	16|Tony Johnson|64|Male|True|4
