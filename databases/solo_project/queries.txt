@@ -130,24 +130,16 @@ there is LEFT, RIGHT, and FULL OUTER JOIN types. Returns all rows from
 left-hand table specified in the ON condition.
 
 Code: 
-	SELECT patients.doctor_id, doctors.name, patients.name FROM doctors LEFT OUTER JOIN patients ON doctors.id = patients.doctor_id;
+	SELECT * FROM doctors LEFT OUTER JOIN patients on doctors.id = patients.doctor_id;
 
-Result:
-	1|Dr. Terry Larson|Angela Tran
-	1|Dr. Terry Larson|Oscar Lopez
-	2|Dr. Jessica Bautista|Ashley Schilling
-	2|Dr. Jessica Bautista|Frank Patel
-	2|Dr. Jessica Bautista|Liz Smith
-	3|Dr. Chris Adams|Connie Noukas
-	3|Dr. Chris Adams|Megan Schwartz
-	4|Dr. Vivian Le|Daniel Sun
-	4|Dr. Vivian Le|Helen Rios
-	4|Dr. Vivian Le|Nemo Nguyen
-	4|Dr. Vivian Le|Tony Johnson
-
-3. CROSS JOIN
-
-Code:
-
-
-Result:
+Result: 	
+	1|Dr. Terry Larson||||||
+	2|Dr. Jessica Bautista|2|Ashley Schilling|52|Female|True|2
+	2|Dr. Jessica Bautista|6|Frank Patel|25|Male|True|2
+	2|Dr. Jessica Bautista|10|Liz Smith|53|Female|True|2
+	3|Dr. Chris Adams|3|Connie Noukas|35|Male|True|3
+	3|Dr. Chris Adams|11|Megan Schwartz|34|Female|True|3
+	4|Dr. Vivian Le|4|Daniel Sun|28|Male|True|4
+	4|Dr. Vivian Le|8|Helen Rios|39|Female|True|4
+	4|Dr. Vivian Le|12|Nemo Nguyen|26|Male|True|4
+	4|Dr. Vivian Le|16|Tony Johnson|64|Male|True|4
