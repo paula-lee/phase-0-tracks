@@ -1,9 +1,9 @@
 require 'sqlite3'
 require 'faker'
 
-#create table for customers
-# module Database_methods
-	# def self.intialize_db
+# create table for customers
+module Database_methods
+	def self.intialize_db
 		db = SQLite3::Database.new("order_parts.db")
 		db.results_as_hash = true
 		create_table_customers = <<-SQL
@@ -40,9 +40,9 @@ require 'faker'
 			)
 		SQL
 		db.execute(create_table_orders)
-	# end
+	end
 
-	def create_customer(db, name, company_name, phone_number, billing_address, shipping_address)
+	def self.create_customer(db, name, company_name, phone_number, billing_address, shipping_address)
 		db.execute("INSERT INTO customers (
 			name,
 			company,
@@ -53,7 +53,7 @@ require 'faker'
 			[name, company_name, phone_number, billing_address, shipping_address])
 	end
 
-	def create_parts_inventory(db, name, description, quantity, price)
+	def self.create_parts_inventory(db, name, description, quantity, price)
 		db.execute("INSERT INTO parts (
 			name,
 			description,
@@ -63,7 +63,7 @@ require 'faker'
 			[name, description, quantity, price])
 	end
 
-	def create_orders(db, parts_id, quantity, customer_id)
+	def self.create_orders(db, parts_id, quantity, customer_id)
 		db.execute("INSERT INTO orders (
 			partsId,
 			quantity,
@@ -72,7 +72,7 @@ require 'faker'
 			[parts_id, quantity, customer_id])
 	end
 
-	def display_parts(db)
+	def self.display_parts(db)
 		parts = db.execute("SELECT * FROM parts")
 		printf("%-8s | %-15s | %-35s | %-8s | %-10s\n",
 			"Part ID".center(2),
@@ -86,7 +86,7 @@ require 'faker'
 		end
 	end
 
-	def print_order_details(db, ordersId)
+	def self.print_order_details(db, ordersId)
 		details = db.execute("SELECT customers.name, parts.name, orders.quantity
 			FROM customers
 			JOIN orders ON customers.customerId = orders.customerId
@@ -101,8 +101,7 @@ require 'faker'
 			printf("%-20s | %-10s | %-3d\n" % [orders[0], orders[1], orders[2]])
 		end
 	end
-
-# end
+end
 
 
 #driver code
@@ -119,7 +118,7 @@ require 'faker'
 # create_parts_inventory(db, "end cap", "covers the FID connection", 1, 285.00)
 
 # create_orders(db, 1, 2, 1)
-display_parts(db)
+# display_parts(db)
 # print_order_details(db, 1)
 
 
