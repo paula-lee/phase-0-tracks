@@ -72,6 +72,20 @@ require 'faker'
 			[parts_id, quantity, customer_id])
 	end
 
+	def display_parts(db)
+		parts = db.execute("SELECT * FROM parts")
+		printf("%-8s | %-15s | %-35s | %-8s | %-10s\n",
+			"Part ID".center(2),
+			"Part Name".center(2),
+			"Part Description".center(2),
+			"Quantity".center(2),
+			"Price".center(2)
+		)
+		parts.each do |part|
+			printf("%-8s | %-15s | %-35s | %-8s | %-10s\n", part[0], part[1], part[2], part[3], part[4])
+		end
+	end
+
 	def print_order_details(db, ordersId)
 		details = db.execute("SELECT customers.name, parts.name, orders.quantity
 			FROM customers
@@ -84,7 +98,7 @@ require 'faker'
 			"Order Quantity".center(5)
 			)
 		details.each do |orders|
-			puts "%-20s | %-10s | %-3d\n" % [orders[0], orders[1], orders[2]]
+			printf("%-20s | %-10s | %-3d\n" % [orders[0], orders[1], orders[2]])
 		end
 	end
 
@@ -105,6 +119,7 @@ require 'faker'
 # create_parts_inventory(db, "end cap", "covers the FID connection", 1, 285.00)
 
 # create_orders(db, 1, 2, 1)
-print_order_details(db, 1)
+display_parts(db)
+# print_order_details(db, 1)
 
 
