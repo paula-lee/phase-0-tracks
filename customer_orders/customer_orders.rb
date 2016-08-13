@@ -2,8 +2,8 @@ require 'sqlite3'
 require 'faker'
 
 #create table for customers
-module Database_methods
-	def self.intialize_db
+# module Database_methods
+	# def self.intialize_db
 		db = SQLite3::Database.new("order_parts.db")
 		db.results_as_hash = true
 		create_table_customers = <<-SQL
@@ -40,5 +40,18 @@ module Database_methods
 			)
 		SQL
 		db.execute(create_table_orders)
+	# end
+
+	def create_customer(db, name, company_name, phone_number, billing_address, shipping_address)
+		db.execute("INSERT INTO customers (
+			name,
+			company,
+			phoneNumber,
+			billingAddress,
+			shippingAddress
+			) VALUES (?, ?, ?, ?, ?)",
+			[name, company_name, phone_number, billing_address, shipping_address])
 	end
-end
+# end
+
+create_customer(db, Faker::Name.name, Faker::Company.name, Faker::PhoneNumber.phone_number, Faker::Address.street_address, Faker::Address.street_address)
