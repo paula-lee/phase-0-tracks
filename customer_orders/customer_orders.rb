@@ -63,19 +63,31 @@ require 'faker'
 			[name, description, quantity, price])
 	end
 
+	def create_orders(db, parts_id, quantity, customer_id)
+		db.execute("INSERT INTO orders (
+			partsId,
+			quantity,
+			customerId
+			) VALUES (?, ?, ?)",
+			[parts_id, quantity, customer_id])
+	end
+
 # end
 
 
 #driver code
-# create_customer(db, Faker::Name.name, Faker::Company.name, Faker::PhoneNumber.phone_number, Faker::key => "value", Address.street_address, Faker::Address.street_address)
+# 49.times do
+# 	create_customer(db, Faker::Name.name, Faker::Company.name, Faker::PhoneNumber.phone_number, Faker::Address.street_address, Faker::Address.street_address)
+# end
 # manually create parts
-create_parts_inventory(db, "main board", "circuit board for the TVA 1000B", 1, 1000.00)
-create_parts_inventory(db, "FID capsule", "measures gas", 1, 175.00)
-create_parts_inventory(db, "cup filter", "tube filter", 5, 4.00)
-create_parts_inventory(db, "diaphragm", "inner and outer tube", 1, 20.00)
-create_parts_inventory(db, "battery tva", "power charge", 1, 175.00)
-create_parts_inventory(db, "pump valve", "connector to the diaphragm", 1, 17.00)
-create_parts_inventory(db, "end cap", "covers the FID connection", 1, 285.00)
+# create_parts_inventory(db, "main board", "circuit board for the TVA 1000B", 1, 1000.00)
+# create_parts_inventory(db, "FID capsule", "measures gas", 1, 175.00)
+# create_parts_inventory(db, "cup filter", "tube filter", 5, 4.00)
+# create_parts_inventory(db, "diaphragm", "inner and outer tube", 1, 20.00)
+# create_parts_inventory(db, "battery tva", "power charge", 1, 175.00)
+# create_parts_inventory(db, "pump valve", "connector to the diaphragm", 1, 17.00)
+# create_parts_inventory(db, "end cap", "covers the FID connection", 1, 285.00)
 
+# create_orders(db, 1, 2, 1)
 
 
