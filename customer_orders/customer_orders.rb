@@ -52,6 +52,30 @@ require 'faker'
 			) VALUES (?, ?, ?, ?, ?)",
 			[name, company_name, phone_number, billing_address, shipping_address])
 	end
+
+	def create_parts_inventory(db, name, description, quantity, price)
+		db.execute("INSERT INTO parts (
+			name,
+			description,
+			quantity,
+			price
+			) VALUES (?, ?, ?, ?)",
+			[name, description, quantity, price])
+	end
+
 # end
 
-create_customer(db, Faker::Name.name, Faker::Company.name, Faker::PhoneNumber.phone_number, Faker::Address.street_address, Faker::Address.street_address)
+
+#driver code
+# create_customer(db, Faker::Name.name, Faker::Company.name, Faker::PhoneNumber.phone_number, Faker::key => "value", Address.street_address, Faker::Address.street_address)
+# manually create parts
+create_parts_inventory(db, "main board", "circuit board for the TVA 1000B", 1, 1000.00)
+create_parts_inventory(db, "FID capsule", "measures gas", 1, 175.00)
+create_parts_inventory(db, "cup filter", "tube filter", 5, 4.00)
+create_parts_inventory(db, "diaphragm", "inner and outer tube", 1, 20.00)
+create_parts_inventory(db, "battery tva", "power charge", 1, 175.00)
+create_parts_inventory(db, "pump valve", "connector to the diaphragm", 1, 17.00)
+create_parts_inventory(db, "end cap", "covers the FID connection", 1, 285.00)
+
+
+
