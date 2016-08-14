@@ -3,9 +3,8 @@ require 'faker'
 
 # create table for customers
 module Database_methods
-	def self.intialize_db
-		db = SQLite3::Database.new("order_parts.db")
-		db.results_as_hash = true
+	def self.initialize_db
+		db = SQLite3::Database.new("order_parts.db")	
 		create_table_customers = <<-SQL
 			CREATE TABLE IF NOT EXISTS customers(
 				customerId INTEGER PRIMARY KEY,
@@ -40,6 +39,14 @@ module Database_methods
 			)
 		SQL
 		db.execute(create_table_orders)
+		if(db.execute("SELECT * FROM customers") == [])
+			first_input = <<-SQL
+				INSERT INTO customers (name, company, phoneNumber, billingAddress, shippingAddress) VALUES ("Jill Anderson", "ABC Oil", "281-555-1234", "123 Pine Street", "987 Southwest Fwy");
+			SQL
+			db.execute(first_input)
+		end
+		db.results_as_hash = true
+		return db
 	end
 
 	def self.create_customer(db, name, company_name, phone_number, billing_address, shipping_address)
@@ -72,6 +79,16 @@ module Database_methods
 			[parts_id, quantity, customer_id])
 	end
 
+	def self.inventory(db)
+		create_parts_inventory(db, "main board", "circuit board for the TVA 1000B", 1, 1000.00)
+		create_parts_inventory(db, "FID capsule", "measures gas", 1, 175.00)
+		create_parts_inventory(db, "cup filter", "tube filter", 5, 4.00)
+		create_parts_inventory(db, "diaphragm", "inner and outer tube", 1, 20.00)
+		create_parts_inventory(db, "battery tva", "power charge", 1, 175.00)
+		create_parts_inventory(db, "pump valve", "connector to the diaphragm", 1, 17.00)
+		create_parts_inventory(db, "end cap", "covers the FID connection", 1, 285.00)
+	end
+
 	def self.display_parts(db)
 		parts = db.execute("SELECT * FROM parts")
 		printf("%-8s | %-15s | %-35s | %-8s | %-10s\n",
@@ -84,6 +101,10 @@ module Database_methods
 		parts.each do |part|
 			printf("%-8s | %-15s | %-35s | %-8s | %-10s\n", part[0], part[1], part[2], part[3], part[4])
 		end
+	end
+
+	def self.find_customer_id(db, name)
+		customer_id = db.execute("SELECT * FROM customers WHERE name =?", [name])
 	end
 
 	def self.print_order_details(db, ordersId)
