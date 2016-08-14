@@ -51,12 +51,13 @@ while loop_status == true
 			puts "What is your order id number?"
 			order_id = gets.chomp.to_i
 			Database_methods.print_order_details(db, order_id)
-		when 5
-			loop_status = false #FIGURE OUT WHERE TO PUT THIS
-	end
+
 		puts "Back to main menu type: 0"
 		option = gets.chomp.to_i
 		main_screen()
 		option = gets.chomp.to_i	
+		when 5
+		loop_status = false
+		end
 	end
 end
