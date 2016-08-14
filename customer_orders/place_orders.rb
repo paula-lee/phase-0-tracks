@@ -1,4 +1,4 @@
-require_relative 'customer_orders'
+require_relative 'orders_database'
 
 def main_screen()
 	puts "Welcome to Analyzer Parts Store"
