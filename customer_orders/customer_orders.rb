@@ -1,5 +1,5 @@
 require 'sqlite3'
-require 'faker'
+# require 'faker'
 
 # create table for customers
 module Database_methods
@@ -138,6 +138,21 @@ module Database_methods
 			printf("%-20s | %-10s | %-3d\n" % [orders[0], orders[1], orders[2]])
 		end
 	end
+
+	def self.total_cost(db, ordersId)
+		cost = db.execute("SELECT parts.price, orders.quantity 
+			FROM parts
+			JOIN orders ON parts.partsId = orders.partsId
+			WHERE ordersId =?;", [ordersId])
+		printf("%-30s\n",
+			"Your total is:".center(5)
+			)
+		cost.each do |cost|
+			total = cost[0] * cost[1]
+			printf("%-8s\n" % total)
+		end
+	end
+
 end
 
 
