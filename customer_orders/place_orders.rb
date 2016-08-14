@@ -2,6 +2,11 @@ require_relative 'customer_orders'
 
 def main_screen()
 	puts "Welcome to Analyzer Parts Store"
+	puts "--------------------------------------------------------------------------------------"
+	puts "If you are a new customer, please choose option 1 first."
+	puts "If you are a returning customer and forgot your ID, please choose option 2 first"
+	puts "	as you will need it to order parts."
+	puts "--------------------------------------------------------------------------------------"
 	puts "Please choose an option:"
 	puts "1 - New Customer"
 	puts "2 - Forgot Customer ID?"
@@ -10,11 +15,15 @@ def main_screen()
 	puts "5 - Exit"
 end
 
+def inventory(db)
+	Database_methods.inventory(db)
+end
+
 option = 0
 main_screen()
 option = gets.chomp.to_i
 db = Database_methods.initialize_db()
-# Database_methods.inventory(db)
+# inventory(db)
 loop_status = true
 while loop_status == true
 	begin
@@ -51,13 +60,14 @@ while loop_status == true
 			puts "What is your order id number?"
 			order_id = gets.chomp.to_i
 			Database_methods.print_order_details(db, order_id)
-
+		end 
 		puts "Back to main menu type: 0"
 		option = gets.chomp.to_i
 		main_screen()
-		option = gets.chomp.to_i	
-		when 5
-		loop_status = false
+		option = gets.chomp.to_i
+		if option == 5
+			loop_status = false
 		end
 	end
-end
+	
+end until option == 5
