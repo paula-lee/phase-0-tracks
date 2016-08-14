@@ -23,7 +23,7 @@ option = 0
 main_screen()
 option = gets.chomp.to_i
 db = Database_methods.initialize_db()
-# inventory(db)
+inventory(db)
 loop_status = true
 while loop_status == true
 	begin
