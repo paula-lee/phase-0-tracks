@@ -14,6 +14,7 @@ option = 0
 main_screen()
 option = gets.chomp.to_i
 db = Database_methods.initialize_db()
+# Database_methods.inventory(db)
 loop_status = true
 while loop_status == true
 	begin
@@ -37,7 +38,6 @@ while loop_status == true
 			name = gets.chomp
 			Database_methods.find_customer_id(db, name)
 		when 3
-			Database_methods.inventory(db)
 			Database_methods.display_parts(db)
 			puts "What part would you like to order? Please input the Part ID"
 			parts_id = gets.chomp.to_i
@@ -46,6 +46,7 @@ while loop_status == true
 			puts "What is your customer ID?"
 			customer_id = gets.chomp.to_i
 			Database_methods.create_orders(db, parts_id, quantity, customer_id)
+			Database_methods.return_order_id(db, customer_id)
 		when 4
 			puts "What is your order id number?"
 			order_id = gets.chomp.to_i

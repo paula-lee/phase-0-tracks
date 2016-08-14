@@ -79,6 +79,16 @@ module Database_methods
 			[parts_id, quantity, customer_id])
 	end
 
+	def self.return_order_id(db, customer_id)
+		order_id = db.execute("SELECT * FROM orders WHERE orders.customerId =?", [customer_id])
+		printf("%-30s\n",
+			"Your order ID is:".center(5)
+			)
+		order_id.each do |id|
+			printf("%-5s\n" % [id[0]])
+		end
+	end
+
 	def self.inventory(db)
 		create_parts_inventory(db, "main board", "circuit board for the TVA 1000B", 1, 1000.00)
 		create_parts_inventory(db, "FID capsule", "measures gas", 1, 175.00)
@@ -120,7 +130,7 @@ module Database_methods
 			JOIN parts ON parts.partsId = orders.partsId
 			WHERE ordersId =?;", [ordersId])
 		printf("%-20s | %-10s | %-15s\n",
-			"Customer Name".center(15),
+			"Customer Name".center(2),
 			"Parts Name".center(10),
 			"Order Quantity".center(5)
 			)
