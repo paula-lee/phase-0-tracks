@@ -37,6 +37,7 @@ while loop_status == true
 			name = gets.chomp
 			Database_methods.find_customer_id(db, name)
 		when 3
+			Database_methods.inventory(db)
 			Database_methods.display_parts(db)
 			puts "What part would you like to order? Please input the Part ID"
 			parts_id = gets.chomp.to_i
