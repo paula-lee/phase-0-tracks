@@ -105,6 +105,12 @@ module Database_methods
 
 	def self.find_customer_id(db, name)
 		customer_id = db.execute("SELECT * FROM customers WHERE name =?", [name])
+		printf("%-30s\n",
+			"Your customer ID is:".center(5)
+			)
+		customer_id.each do |id|
+			printf("%-5s\n" % [id[0]])
+		end
 	end
 
 	def self.print_order_details(db, ordersId)
