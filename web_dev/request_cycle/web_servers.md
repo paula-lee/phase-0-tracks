@@ -19,3 +19,16 @@ RELEASE 1 QUESTIONS:
 	Ran rm -rf *.
 	It is best practice to run your application at a user level and do
 		administrative tasks at the root user level.
+
+
+
+RELEASE 2: EXPLORE THE DOM
+inner-text: change some of the titles or content from the page
+lang: maybe I want to practice my spanish and convert it
+contentedible: what if it wasn't inheritable? Would like to know
+	what happens and make it false instead.
+nodeType: can specify a type of node by using 1, 2, 3, or 8; is read-only
+outer-text: similar to inner-text but instead of just replacing the 
+	content inside the tags, outer-text replaces the content AND the
+	tags.
+
