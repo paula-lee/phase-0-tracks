@@ -22,13 +22,9 @@ RELEASE 0 QUESTIONS:
 	which prevented it from fulfilling the request
 
 3. What is the difference between a GET request and a POST request? When might each be used?
-GET is used to retrieve remote data, and POST is used to insert/update 		remote data.
-Use GET for safe actions and POST for unsafe actions, because GET requests
-	can get cached, remain in the browser history, shared, and hacked.
+	GET is used to retrieve remote data, and POST is used to insert/update 		remote data.
+	Use GET for safe actions and POST for unsafe actions, because GET requests can get cached, remain in the browser history, shared, and hacked.
 
 4. Optional bonus question: What is a cookie (the technical kind, not the delicious kind)? How does it relate to HTTP requests?
-A cookie is a small text file that is stored on your computer's browser.
-	They are plain text and does not have executeable code. They are
-	designed to remember stateful information or remember user's browsing
-	activity. When the server receives an HTTP request, the server sends
-	a header called Set-Cookie. 
+	A cookie is a small text file that is stored on your computer's 
+	browser. They are plain text and does not have executeable code. They are designed to remember stateful information or remember user's browsing activity. When the server receives an HTTP request, the server sends a header called Set-Cookie. 
