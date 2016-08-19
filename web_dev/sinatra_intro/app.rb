@@ -73,3 +73,13 @@ get '/add/:num_1/:num_2' do
   "#{total}"
 end
 
+# BONUS
+# write a GET route that allows search
+get '/search_name' do
+  student_name = db.execute("SELECT * FROM students WHERE name LIKE ?", ('%'+params[:name]+'%'))
+  response = ""
+  student_name.each do |student|
+    response << "Found name: #{student['name']}<br>"
+  end
+  response    
+end
