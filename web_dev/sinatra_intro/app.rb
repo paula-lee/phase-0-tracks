@@ -44,3 +44,42 @@ get '/students/:id' do
   student = db.execute("SELECT * FROM students WHERE id=?", [params[:id]])[0]
   student.to_s
 end
+
+
+# RELEASE 0: Add Routes
+# write a GET route that displays contacts
+get '/contact/:address' do
+  address = params[:address]
+  "Contact Information <br>
+   Address: #{address}"
+end
+
+# write a GET route that takes a person's name
+# and add a query parameter
+# remember to put '?' for query parameter
+get '/great_job' do
+  name = params[:name]
+  if name
+    "Great job, #{name}!"
+  else
+    "Great job!"
+  end
+end
+
+# write a GET route that uses parameters to add two
+# numbers and respond with result
+get '/add/:num_1/:num_2' do
+  total = params[:num_1].to_i + params[:num_2].to_i
+  "#{total}"
+end
+
+# BONUS
+# write a GET route that allows search
+get '/search_name' do
+  student_name = db.execute("SELECT * FROM students WHERE name LIKE ?", ('%'+params[:name]+'%'))
+  response = ""
+  student_name.each do |student|
+    response << "Found name: #{student['name']}<br>"
+  end
+  response    
+end
