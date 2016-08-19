@@ -53,3 +53,15 @@ get '/contact/:address' do
   "Contact Information <br>
    Address: #{address}"
 end
+
+# write a GET route that takes a person's name
+# and add a query parameter
+# remember to put '?' for query parameter
+get '/great_job' do
+  name = params[:name]
+  if name
+    "Great job, #{name}!"
+  else
+    "Great job!"
+  end
+end
